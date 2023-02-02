@@ -1,0 +1,43 @@
+TODO
+
+narrow / wide transformations
+
+
+create a new repo for this course.
+
+ARCHITECTURE: "Chapter 15. How Spark Runs on a Cluster"
+------------
+insert the figure from [SDG] Fig 6.2
+
+slide: HW architecture and where each component is placed, + Yarn
+SDG.ch15
+Fig 15.1
+
+slide: code running: logical plan, phy plan, optimizer; fig ???
+
+
+slide: the cluster manager SDG.15.fig15.1  "first, just the manager without spark application"
+
+
+The Life Cycle of a Spark Application (Outside Spark)
+
+- ask the cluster manager (CM) to start driver on one of the nodes.
+- the driver asks the CM to start executor processes on the worker nodes.
+Now the "spark cluster" is ready to accept work.
+
+Execution: Fig 15-6
+The driver and the workers communicate among themselves, executing code and
+moving data around. The driver schedules tasks onto each worker, and each worker responds
+with the status of those tasks and success or failure.
+
+
+Completion: Fig 15-7
+After a Spark Application completes, the driver processs exits with either success or failure. The cluster manager then shuts down the executors in that Spark cluster for the driver.
+
+
+
+The Life Cycle of a Spark Application (Inside Spark)
+ - init sparkSession object
+ " It is important to note that you should never need to use the SQLContext and rarely need to use the SparkContext."
+ 
+ 

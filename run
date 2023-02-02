@@ -1,0 +1,16 @@
+#!/bin/bash -eu
+
+# start the spark and friends services
+docker-compose up -d
+sleep 2   # wait a few seconds for the logs to refresh
+
+# open the browser on the jypterlab notebook. 
+url=`docker logs spark-lab 2>&1 |  grep "http://127.0.0.1:8888/"  | tail -1 | cut -c 9- `
+
+
+# This works only in Linux 
+xdg-open $url
+echo "============"
+echo Open your browser on 
+echo $url
+

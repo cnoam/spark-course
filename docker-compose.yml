@@ -1,0 +1,22 @@
+---
+version: '3.9'
+
+services:
+
+  spark:
+     container_name: spark-lab
+     # tag ad3574d3c5c7      spark 2.4.4
+     # tag lab-3.4.7         spark 3.3.0 + jupyterlab 3.4.7
+     # you can use 'latest' for the current spark version
+     image: jupyter/pyspark-notebook:lab-3.2.0
+     environment:
+       JUPYTER_ENABLE_LAB : "yes"
+
+     ports:
+       - 8888:8888
+       - 4040:4040   # the diagnostics web UI is created after succesful creation of SparkSession.
+     volumes:
+       - $PWD/work:/home/jovyan/work
+       - $PWD/data:/home/jovyan/data
+
+
