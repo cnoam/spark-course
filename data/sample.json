@@ -1,0 +1,3 @@
+{'name': 'noam', 'address': {'city': 'Haifa', 'zip': 1234}}
+{'name': 'batman', 'address': {'city': 'Calisto', 'zip': 5000}}
+{'name': 'Edgar', 'address': {'city': 'קהיר', 'zip': 5555}}

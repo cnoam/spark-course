@@ -1,4 +1,12 @@
 **Use the instructions here to run your own environment of Spark on you local (Window/Mac/Linux) machine.**
+# Apache Spark beginner course
+
+This course teaches Spark from the ground up.
+
+Prior knoweldge required:
+ - python
+ - working with jupyter notebook
+ - basic cli usage
 
 This installation uses Spark version 3.3
 
@@ -36,7 +44,7 @@ and type:
 Open a terminal (in Windows, search "ubuntu")
 
 Install this repo:<br>
-`git clone https://github.com/cnoam/spark_local_env.git` <br>
+`git clone https://github.com/cnoam/spark_course.git` <br>
 `cd spark_local_env` <br>
 `git checkout 94290` <br>
 
