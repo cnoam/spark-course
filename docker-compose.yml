@@ -2,9 +2,60 @@
 version: '3.9'
 
 services:
+  #    https://docs.confluent.io/platform/current/installation/docker/config-reference.html#zk-configuration
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    volumes:
+      - zk_vol_data:/var/lib/zookeeper/data
+      - zk_vol_log:/var/lib/zookeeper/log
+
+  # if you change this name, MUST also change in the environ, and remove the ZK volume since it hold an old kafka server ID  for the old name.
+  kafka:
+    # "`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-
+    # An important note about accessing Kafka from clients on other machines: 
+    # -----------------------------------------------------------------------
+    #
+    # The config used here exposes port 29092 for _external_ connections to the broker
+    # i.e. those from _outside_ the docker network. This could be from the host machine
+    # running docker, or maybe further afield if you've got a more complicated setup. 
+    # If the latter is true, you will need to change the value 'localhost' in 
+    # KAFKA_ADVERTISED_LISTENERS to one that is resolvable to the docker host from those 
+    # remote clients
+    #
+    # For connections _internal_ to the docker network, such as from other services
+    # and components, use kafka:29092.
+    #
+    # See https://rmoff.net/2018/08/02/kafka-listeners-explained/ for details
+    # "`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-
+    #
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_LOG_RETENTION_BYTES: 2000000
+      KAFKA_LOG_RETENTION_HOURS: 123456
+    volumes:
+      - kafka_vol:/var/lib/kafka/data/
+
+
 
   spark:
      container_name: spark-lab
+     depends_on:
+        - kafka
      # tag ad3574d3c5c7      spark 2.4.4
      # tag lab-3.4.7         spark 3.3.0 + jupyterlab 3.4.7
      # you can use 'latest' for the current spark version
@@ -18,5 +69,11 @@ services:
      volumes:
        - $PWD/work:/home/jovyan/work
        - $PWD/data:/home/jovyan/data
+       - $HOME/datasets:/datasets
+       
+volumes:   
+       zk_vol_data:
+       zk_vol_log:
+       kafka_vol:
 
 

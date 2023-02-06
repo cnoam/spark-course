@@ -45,8 +45,8 @@ Open a terminal (in Windows, search "ubuntu")
 
 Install this repo:<br>
 `git clone https://github.com/cnoam/spark_course.git` <br>
-`cd spark_local_env` <br>
-`git checkout 94290` <br>
+
+`cd spark_course` <br>
 
 
 Run the command: `./run` that internally runs `docker-compose up -d`

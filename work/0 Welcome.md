@@ -49,8 +49,14 @@ The number of computers can reach thousands in the cluster.
 
 During this course we will use a minimal installation on your own PC/Mac/linux machine.
 
-Instructions are here: https://github.com/cnoam/spark_local_env/blob/94290/readme.md
+Instructions are here: https://github.com/cnoam/spark-course/blob/master/readme.md
 
+## Where are the video recordings
+https://panoptotech.cloud.panopto.eu/Panopto/Pages/Sessions/List.aspx?folderID=a2ea87f6-ac49-4444-b9bd-afa800a4f0c3
+
+While developing: on my laptop "~/videos/spark videos"
+ 
+ 
 # Check yourself
 Occasionally, you will have opportunities to check your knowledge. 
 Try to answer/solve/execute all the questions. They will help you make sure you are ready for the next part!
@@ -58,3 +64,10 @@ Try to answer/solve/execute all the questions. They will help you make sure you 
 * Explain the difference between horizontal and vertical scaling
 * Check "Cluster" definition. Does it match what we have in Spark?
 
+
+<hr>
+Technical details on recording:
+Ubuntu 22.04
+kazam full screen recording
+use extension manager to hide desktop icons
+<hr>
