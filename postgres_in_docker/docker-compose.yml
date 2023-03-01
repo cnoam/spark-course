@@ -1,0 +1,29 @@
+# Run a postgres server accesible only from the internal network 'spark_backend'
+
+version: "3"
+services:
+  db:
+    image: postgres
+    container_name: psqlserver
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgress
+      - POSTGRES_DB=postgres
+ 
+# If connecting only from the internal network, there is no need
+# to expose these ports. 
+#    ports:
+#      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - $PWD/data:/data
+    networks:
+    - spark_backend
+
+volumes:
+  pgdata:
+  
+networks:
+  spark_backend:
+    name: spark_backend
+    

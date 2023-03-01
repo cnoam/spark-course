@@ -70,10 +70,16 @@ services:
        - $PWD/work:/home/jovyan/work
        - $PWD/data:/home/jovyan/data
        - $HOME/datasets:/datasets
+     networks:
+       - spark_backend
        
 volumes:   
        zk_vol_data:
        zk_vol_log:
        kafka_vol:
 
+networks:
+  spark_backend:
+    name: spark_backend
+    
 
