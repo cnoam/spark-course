@@ -12,6 +12,8 @@ services:
     volumes:
       - zk_vol_data:/var/lib/zookeeper/data
       - zk_vol_log:/var/lib/zookeeper/log
+    networks:
+       - spark_backend
 
   # if you change this name, MUST also change in the environ, and remove the ZK volume since it hold an old kafka server ID  for the old name.
   kafka:
@@ -49,6 +51,8 @@ services:
       KAFKA_LOG_RETENTION_HOURS: 123456
     volumes:
       - kafka_vol:/var/lib/kafka/data/
+    networks:
+       - spark_backend
 
 
 
@@ -59,7 +63,7 @@ services:
      # tag ad3574d3c5c7      spark 2.4.4
      # tag lab-3.4.7         spark 3.3.0 + jupyterlab 3.4.7
      # you can use 'latest' for the current spark version
-     image: jupyter/pyspark-notebook:lab-3.2.0
+     image: jupyter/pyspark-notebook:lab-3.3.2
      environment:
        JUPYTER_ENABLE_LAB : "yes"
 

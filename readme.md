@@ -53,6 +53,8 @@ Run the command: `./run` that internally runs `docker-compose up -d`
 
 
 
+
+
 # Stopping
 As long as the program runs, it consumes CPU, so after you are done, please
 run `docker-compose down` or use the Docker Desktop
@@ -82,5 +84,17 @@ Replace in file 'run': <br>
 `spark_local_env_spark_1` with `spark_local_env-spark-1`
 
 * The linux installation was tested on Ubuntu 22.04 . On Fedora, see https://rmoff.net/2020/04/20/how-to-install-kafkacat-on-fedora/  (Read to the end)
+
+# Getting data files
+The `data` folder contains a few small data files.
+Large files have to be downloaded separately:
+```
+$ wget "https://technionmail-my.sharepoint.com/:u:/g/personal/cnoam_technion_ac_il/EUpMtmjAl4dPo5uQ5SJTPZkBOI8IriY41TUabCOT0_6k-g?download=1" -O data.csv.gz
+$ gunzip data.csv.gz
+```
+Now you have `data.csv` of size 270MB
+
+
+
 
 
