@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgress
       - POSTGRES_DB=postgres
- 
+
 # If connecting only from the internal network, there is no need
 # to expose these ports. 
 #    ports:
@@ -22,7 +22,7 @@ services:
 
 volumes:
   pgdata:
-  
+
 networks:
   spark_backend:
     name: spark_backend

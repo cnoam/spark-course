@@ -11,20 +11,24 @@ Use docker:
 * continue like in ubuntu
 
 ## Installing Postgres in ubuntu (from command line)
-run `docker-compose up`
+Just run the next step! The DB engine will be downloaded automatically by docker.
 
 # preparing the database
 It is easy to create the database (once) from the command line.
 
-**Remember that once a Docker container is removed, all its data is lost**
+**Remember that once a Docker container is removed, all its data is lost UNLESS the data is stored outside the container**
+
+The data for this container is stored in the host (it is declared in the docker-compose.yml) so the database will persist between activations of the container.
 
 
 We first need to start the container and then connect to the running container:
 
 In terminal 1: 
 ```docker-compose up -d```
+<br>note: if you get an error complaining on missing network, retry with `docker-compose up -d --force-recreate`
 
-In terminal 2:
+Then, after the command finishes (and the DB runs in the background),
+
 ```docker exec -it psqlserver psql -U postgres```
 
 Once in the psql console:
@@ -73,16 +77,17 @@ select * from players;
 
 ```
 <hr>
-In postgress AUTOCOMMIT is ON by default, so every insert is committed.
+In postgress AUTOCOMMIT is ON by default, so every insert is committed.<br>
 Disable it by using manual transaction ( add BEGIN )
 or in psql console:
+
 ```
 bids_db-# \set AUTOCOMMIT off
 bids_db-# \echo :AUTOCOMMIT
 off
 ```
 
-### Useful (postgres) SQL commands
+### Useful (postgres) SQL commands for your reference
 ```
 \h       help for SQL commands
 TRUNCATE TABLE bids;
@@ -103,4 +108,4 @@ select count(*) from bids;
 * To stop the postgres server: `docker-compose down` from the directory containing the yml file.
 * To remove the image: `docker rmi postgres`
 * To remove the docker network (if it is not in use): `docker network prune`
-
+* To remove the storage where the database is stored: `docker volume rm postgres_in_docker_pgdata`
