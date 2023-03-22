@@ -7,10 +7,24 @@ sleep 2   # wait a few seconds for the logs to refresh
 # open the browser on the jypterlab notebook. 
 url=`docker logs spark-lab 2>&1 |  grep "http://127.0.0.1:8888/"  | tail -1 | cut -c 9- `
 
+echo Try to automatically open the URL
+echo If the browser is not opened, Open browser on
+    echo $url
+set +eu
+if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
+    echo "Runing in Windows WSL"
 
-# This works only in Linux 
-xdg-open $url
-echo "============"
-echo Open your browser on 
-echo $url
+else
+    echo "Running on non WSL machine. Probably Mac or linux"
+    uname -a  |grep -i darwin > /dev/null
+    isMacos=$?
+    if [ $isMacos == 0 ]; then
+        open $url
+    else
+        # This works only in Linux
+        xdg-open $url
+    fi
+fi
+
+
 
