@@ -13,7 +13,7 @@ echo If the browser is not opened, Open browser on
 set +eu
 if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
     echo "Runing in Windows WSL"
-
+    cmd.exe /C start $url
 else
     echo "Running on non WSL machine. Probably Mac or linux"
     uname -a  |grep -i darwin > /dev/null
