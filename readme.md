@@ -1,14 +1,14 @@
-**Use the instructions here to run your own environment of Spark on you local (Window/Mac/Linux) machine.**
 # Apache Spark beginner course
 
-This course teaches Spark from the ground up.
+This course teaches Apache Spark from the ground up, using interactive code notebooks
+
+**Use the instructions here to run your own environment of Spark on your local (Window/Mac/Linux) machine.**
 
 Prior knoweldge required:
  - python
  - working with jupyter notebook
- - basic cli usage
+ - basic command line usage
 
-This installation uses Spark version 3.3
 
 Instead of complicated installs, you will use a ready-made package called *docker container*.
 All you have to do is install the program that will run the *containers*, and a few supporting tools.
@@ -21,9 +21,10 @@ The plan:
 2. get Spark (will be done automatically when calling `run`)
 3. use Jupyter notebook (by opening the browser on the link displayed by `run`)
 
+# Once you have the web broswer open, open the work directory in the left pane and then the `Welcome` file
 
 
-# Installing / Running
+# Installing / Running Docker
 **Windows**:<br>
    install Docker Desktop. <Br>
    install WSL2 as detailed in the instructions on the web<br>
@@ -44,25 +45,39 @@ and type:
 Open a terminal (in Windows, search "ubuntu")
 
 Install this repo:<br>
-`git clone https://github.com/cnoam/spark_course.git` <br>
+`git clone --depth 1 https://github.com/cnoam/spark-course.git` <br>
 
-`cd spark_course` <br>
+`cd spark-course` <br>
 
 
 Run the command: `./run` that internally runs `docker-compose up -d`
 
 
+# Contents of the Docker containers
+This installation uses Spark version 3.3
+
+When the `run` command is executed, the following containers (think of a container as an application) will run:
+ * Spark server (all the components needed to run it)
+ * Kafka server (Used for the 'structured streaming' lesson)
+ * Zookeeper server (support the Kafa server)
+
+ For the `Working with databases` lesson you will run another container - Postgres Database server.
 
 
+# Limitations of running Spark in Docker
+* Runing in standalone mode is not the same as working in a cluster <small>(We could run several containers to be closer to a cluster, but the hardware still behaves like a single computer)</small>
 
-# Stopping
+* Amount of memory allocated to the Docker container
+
+
+# Stopping a container
 As long as the program runs, it consumes CPU, so after you are done, please
 run `docker-compose down` or use the Docker Desktop
 
 All your data is still saved and can be used the next run
 
 
-# Uninstalling
+# Uninstalling Docker
 ## linux/mac
 ```
   $ docker-compose down
@@ -77,14 +92,10 @@ Now you can uninstall docker itself:
 Same as above + uninstall Docker Desktop
 
 
-# Troubleshooting
-
-* (report from Mac OS): <br>
-Replace in file 'run': <br>
-`spark_local_env_spark_1` with `spark_local_env-spark-1`
 
 * The linux installation was tested on Ubuntu 22.04 . On Fedora, see https://rmoff.net/2020/04/20/how-to-install-kafkacat-on-fedora/  (Read to the end)
 
+<!--   currently not needed, since the data file( fine*.gz) is in the git repo
 # Getting data files
 The `data` folder contains a few small data files.
 Large files have to be downloaded separately:
@@ -93,7 +104,7 @@ $ wget "https://technionmail-my.sharepoint.com/:u:/g/personal/cnoam_technion_ac_
 $ gunzip data.csv.gz
 ```
 Now you have `data.csv` of size 270MB
-
+-->
 
 
 
