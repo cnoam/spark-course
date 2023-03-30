@@ -31,20 +31,24 @@ The plan:
    install ubuntu
 
 **Mac**: see the doc "Spark local env for MAC" in the current directory. <br>
-    
+
 **linux**: <br>
   install docker + docker-compose: `sudo apt install -y docker docker-compose`
-<hr>    
-    
+<hr>
+
 After installation, verify it works by opening a terminal 
 (in Windows, it must be the ubuntu console that you have once installing WSL2),<br>
 and type:
 
     docker run hello-world
 
+<hr>
 Open a terminal (in Windows, search "ubuntu")
 
-Install this repo:<br>
+
+**The video in https://youtu.be/-sP_IZ02SZw shows the following procedure. Watch it if you have any issues.**
+
+Clone this repo:<br>
 `git clone --depth 1 https://github.com/cnoam/spark-course.git` <br>
 
 `cd spark-course` <br>
