@@ -2,10 +2,19 @@
 
 # start the spark and friends services
 docker-compose up -d
-sleep 2   # wait a few seconds for the logs to refresh
+
 
 # open the browser on the jypterlab notebook. 
+
+# keep trying until the URL is available
+
 url=`docker logs spark-lab 2>&1 |  grep "http://127.0.0.1:8888/"  | tail -1 | cut -c 9- `
+while [[ -z "$url" ]]
+do
+    echo "waiting for the container to be ready...."
+    sleep 2
+    url=`docker logs spark-lab 2>&1 |  grep "http://127.0.0.1:8888/"  | tail -1 | cut -c 9- `
+done
 
 echo Try to automatically open the URL
 echo If the browser is not opened, Open browser on
