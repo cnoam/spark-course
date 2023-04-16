@@ -4,7 +4,7 @@ This course teaches Apache Spark from the ground up, using interactive code note
 
 **Use the instructions here to run your own environment of Spark on your local (Window/Mac/Linux) machine.**
 
-Prior knoweldge required:
+Prior knowledge required:
  - python
  - working with jupyter notebook
  - basic command line usage
@@ -21,7 +21,7 @@ The plan:
 2. get Spark (will be done automatically when calling `run`)
 3. use Jupyter notebook (by opening the browser on the link displayed by `run`)
 
-# Once you have the web broswer open, open the work directory in the left pane and then the `Welcome` file
+Once you have the web broswer open, open the work directory in the left pane and then the `Welcome` file
 
 
 # Installing / Running Docker
@@ -30,9 +30,23 @@ The plan:
    install WSL2 as detailed in the instructions on the web<br>
    install ubuntu
 
-**Mac**: see the doc "Spark local env for MAC" in the current directory. <br>
+**Mac**: <br>
+Install docker:
+```
+brew install docker
+brew install docker-compose
+brew install -–cask docker
+```
 
-**linux**: <br>
+If you get the following error:
+  `It seems there is already a Binary at ...`, delete the existing docker and install again:
+```
+brew remove docker
+brew install -–cask docker
+```
+
+
+**Linux**: <br>
   install docker + docker-compose: `sudo apt install -y docker docker-compose`
 <hr>
 
@@ -43,19 +57,34 @@ and type:
     docker run hello-world
 
 <hr>
+
+# Running Spark!
+
 Open a terminal (in Windows, search "ubuntu")
 
+## Get the sources
+_note:_ This should be done only once.
 
 **The video in https://youtu.be/-sP_IZ02SZw shows the following procedure. Watch it if you have any issues.**
+
+_note_: In the video I use `clone`. The `--depth` is optional and can be used when you want to get only the N latests commits.
+
 
 Clone this repo:<br>
 `git clone --depth 1 https://github.com/cnoam/spark-course.git` <br>
 
+## Run the Spark server in Docker
 `cd spark-course` <br>
 
+**Windows**: Start Docker Desktop <br>
+**Mac**: Start Docker application
 
-Run the command: `./run` that internally runs `docker-compose up -d`
 
+Run the command: `./run` that internally runs `docker-compose up -d` and opens a browser that shows the Jupyter notebooks.
+
+In the browser, open the `work` folder and open the first notebook.
+
+That's all!
 
 # Contents of the Docker containers
 This installation uses Spark version 3.3
@@ -69,7 +98,7 @@ When the `run` command is executed, the following containers (think of a contain
 
 
 # Limitations of running Spark in Docker
-* Runing in standalone mode is not the same as working in a cluster <small>(We could run several containers to be closer to a cluster, but the hardware still behaves like a single computer)</small>
+* Running in standalone mode is not the same as working in a cluster <small>(We could run several containers to be closer to a cluster, but the hardware still behaves like a single computer)</small>
 
 * Amount of memory allocated to the Docker container
 
@@ -111,5 +140,10 @@ Now you have `data.csv` of size 270MB
 -->
 
 
+# Troubleshooting
+
+## The `run` command does not open the browser
+
+run `docker logs spark-lab` and find the line with teh URL to open the notebook.
 
 
