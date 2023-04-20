@@ -12,8 +12,7 @@ services:
     volumes:
       - zk_vol_data:/var/lib/zookeeper/data
       - zk_vol_log:/var/lib/zookeeper/log
-    networks:
-       - spark_backend
+
 
   # if you change this name, MUST also change in the environ, and remove the ZK volume since it hold an old kafka server ID  for the old name.
   kafka:
@@ -51,8 +50,6 @@ services:
       KAFKA_LOG_RETENTION_HOURS: 123456
     volumes:
       - kafka_vol:/var/lib/kafka/data/
-    networks:
-       - spark_backend
 
 
 
@@ -60,12 +57,12 @@ services:
      container_name: spark-lab
      depends_on:
         - kafka
-     # tag ad3574d3c5c7      spark 2.4.4
-     # tag lab-3.4.7         spark 3.3.0 + jupyterlab 3.4.7
-     # you can use 'latest' for the current spark version
      image: jupyter/pyspark-notebook:lab-3.3.2
+     #image: spark-3.3.2_jars
+     #build:
+     #   dockerfile: Dockerfile.spark
      environment:
-       JUPYTER_ENABLE_LAB : "yes"
+        JUPYTER_ENABLE_LAB : "yes"
 
      ports:
        - 8888:8888
@@ -74,16 +71,9 @@ services:
        - $PWD/work:/home/jovyan/work
        - $PWD/data:/home/jovyan/data
        - $HOME/datasets:/datasets
-     networks:
-       - spark_backend
+
        
 volumes:   
        zk_vol_data:
        zk_vol_log:
        kafka_vol:
-
-networks:
-  spark_backend:
-    name: spark_backend
-    
-

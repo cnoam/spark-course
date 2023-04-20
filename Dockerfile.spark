@@ -1,0 +1,5 @@
+FROM jupyter/pyspark-notebook:lab-3.3.2
+USER 0
+RUN mkdir /home/jars
+USER 1000
+COPY jars/* /home/jars/

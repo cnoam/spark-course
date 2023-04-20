@@ -23,6 +23,10 @@ The plan:
 
 Once you have the web broswer open, open the work directory in the left pane and then the `Welcome` file
 
+## Can I break something if I do \<something\>?
+The worst you can do is to ruin your own computer. You cannot modify content for other users.
+
+PLAY WITH THE CODE! You will break things and that's ok. When you want to clean, follow the Troubleshooting section below.
 
 # Installing / Running Docker
 **Windows**:<br>
@@ -35,19 +39,19 @@ Install docker:
 ```
 brew install docker
 brew install docker-compose
-brew install -–cask docker
+brew install --cask docker
 ```
 
 If you get the following error:
   `It seems there is already a Binary at ...`, delete the existing docker and install again:
 ```
 brew remove docker
-brew install -–cask docker
+brew install --cask docker
 ```
 
 
 **Linux**: <br>
-  install docker + docker-compose: `sudo apt install -y docker docker-compose`
+  install docker  `sudo apt install -y docker`
 <hr>
 
 After installation, verify it works by opening a terminal 
@@ -80,7 +84,7 @@ Clone this repo:<br>
 **Mac**: Start Docker application
 
 
-Run the command: `./run` that internally runs `docker-compose up -d` and opens a browser that shows the Jupyter notebooks.
+Run the command: `./run` that internally runs `docker compose up -d` and opens a browser that shows the Jupyter notebooks.
 
 In the browser, open the `work` folder and open the first notebook.
 
@@ -105,7 +109,7 @@ When the `run` command is executed, the following containers (think of a contain
 
 # Stopping a container
 As long as the program runs, it consumes CPU, so after you are done, please
-run `docker-compose down` or use the Docker Desktop
+run `docker compose down` or use the Docker Desktop
 
 All your data is still saved and can be used the next run
 
@@ -113,7 +117,7 @@ All your data is still saved and can be used the next run
 # Uninstalling Docker
 ## linux/mac
 ```
-  $ docker-compose down
+  $ docker compose down
   $ docker kill `docker ps -aq`
   $ docker rm `docker ps -aq`
   $ docker rmi `docker images`
@@ -144,6 +148,17 @@ Now you have `data.csv` of size 270MB
 
 ## The `run` command does not open the browser
 
-run `docker logs spark-lab` and find the line with teh URL to open the notebook.
+run `docker logs spark-lab` and find the line with the URL to open the notebook.
+
+## Strange errors
+If strange errors happen, save your changes to another folder and start fresh:
+
+Clean the Docker environment:
+1. docker compose down
+1. docker container prune
+1. docker volume prune
+
+Clean the source code:
+1. git reset --hard
 
 
