@@ -57,12 +57,14 @@ services:
      container_name: spark-lab
      depends_on:
         - kafka
-     image: jupyter/pyspark-notebook:lab-3.3.2
-     #image: spark-3.3.2_jars
-     #build:
-     #   dockerfile: Dockerfile.spark
+     # image: jupyter/pyspark-notebook:lab-3.3.2
+     ###### WARNING ########## the reported spark version is 3.2.1   ???????????
+
+     image: spark-3.3.2_jars
+     build:
+       dockerfile: Dockerfile.spark
      environment:
-        JUPYTER_ENABLE_LAB : "yes"
+       JUPYTER_ENABLE_LAB : "yes"
 
      ports:
        - 8888:8888
