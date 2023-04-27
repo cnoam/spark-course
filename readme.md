@@ -154,11 +154,17 @@ run `docker logs spark-lab` and find the line with the URL to open the notebook.
 If strange errors happen, save your changes to another folder and start fresh:
 
 Clean the Docker environment:
-1. docker compose down
-1. docker container prune
-1. docker volume prune
+1. `docker compose down`
+1. `docker container prune`
+1. `docker volume prune`
 
 Clean the source code:
-1. git reset --hard
+1. `git reset --hard`
 
 
+## I cannot install/run Docker on my PC
+Docker is needed to run the notebooks. If you cannot run Docker, you can still run part of the notebooks on an external service such as Google Colab.
+
+Obviously, trying to load files from the local storage will fail, so you will have to be imaginative and get the data from somehere else.
+
+In Colab (colab.research.google.com), upload a notebook from the work folder. Insert a new code cell with `!pip install pyspark`.
