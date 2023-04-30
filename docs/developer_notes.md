@@ -42,3 +42,14 @@ cat check_notebooks.patch
 > done
 > # Noamc}
 ```
+
+
+# Supplying dependency JARs
+Instead of relying on downloading from Maven as in
+`config('spark.jars.packages', 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.0')`
+
+I found the list of dependencies, downloaded them and then removed the largest files based on trial and error.
+
+I took the package name, lookd at Maven how the \<dependecy\> looks and created a pom.xml file using a simple example.
+
+Then ran `mvn dependency:copy-dependencies`

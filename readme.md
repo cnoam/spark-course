@@ -150,6 +150,10 @@ Now you have `data.csv` of size 270MB
 
 run `docker logs spark-lab` and find the line with the URL to open the notebook.
 
+If the above doesn't work:
+ 1. close all browser tab of the jupyter notebooks
+ 1. run `docker compose restart`
+
 ## Strange errors
 If strange errors happen, save your changes to another folder and start fresh:
 
