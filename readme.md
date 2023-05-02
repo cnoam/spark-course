@@ -24,12 +24,14 @@ The plan:
 Once you have the web broswer open, open the work directory in the left pane and then the `Welcome` file
 
 ## Can I break something if I do \<something\>?
-The worst you can do is to ruin your own computer. You cannot modify content for other users.
+The worst you can do is to ruin your own copy. You cannot modify content for other users.
 
 PLAY WITH THE CODE! You will break things and that's ok. When you want to clean, follow the Troubleshooting section below.
 
 # Installing / Running Docker
 **Windows**:<br>
+see docs/Windows_Spark_install_tutorial.pdf
+
    install Docker Desktop. <Br>
    install WSL2 as detailed in the instructions on the web<br>
    install ubuntu
@@ -51,8 +53,12 @@ brew install --cask docker
 
 
 **Linux**: <br>
-  install docker  `sudo apt install -y docker`
+  Follow the instructions [here](https://docs.docker.com/engine/install/ubuntu/)
 <hr>
+
+## use Docker without `sudo`
+Follow these [steps](https://docs.docker.com/engine/install/linux-postinstall/)
+<br><br>
 
 After installation, verify it works by opening a terminal 
 (in Windows, it must be the ubuntu console that you have once installing WSL2),<br>
