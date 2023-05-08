@@ -178,3 +178,23 @@ Docker is needed to run the notebooks. If you cannot run Docker, you can still r
 Obviously, trying to load files from the local storage will fail, so you will have to be imaginative and get the data from somehere else.
 
 In Colab (colab.research.google.com), upload a notebook from the work folder. Insert a new code cell with `!pip install pyspark`.
+<br><br>
+<hr>
+
+# Installing python packages
+If you need a package (example: jsoninja) which is not installed, you can run (in a code cell in the notebook)
+`pip install jsoninja` and the package will be available until the Docker container is killed.
+
+For small packages it's fine, but if the download/installation takes a long time, it is better to install the package into the Docker image itself.
+
+## Add Python package to the Docker image
+
+1. Open the file Dockerfile.spark
+1. Add this line as the last line in the file: `RUN pip install jsoninja` (You can add more than one on the same line)
+1. Save and close the file
+1. Force a rebuild of the Docker image:
+      ```
+      docker compose down
+      docker rmi spark-3.3.2_jars
+      ```
+1. That's it. From now on use `./run` as usual
