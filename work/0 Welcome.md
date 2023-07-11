@@ -1,4 +1,5 @@
 # A Short self paced Spark course
+[**Watch the video**](https://panoptotech.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f3190b9b-ec6c-42b5-b4a3-afa800a52071)
 
 This is a 10 hours course to teach the basics of Spark to students who already are familiar with coding and machine learning.
 
