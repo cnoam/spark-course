@@ -88,15 +88,13 @@ Clone this repo:<br>
 `git clone --depth 1 https://github.com/cnoam/spark-course.git` <br>
 
 ## Run the Spark server in Docker
-`cd spark-course` <br>
+* In the Ubuntu Terminal `cd spark-course` to the repo you just cloned.
+* **Windows and Mac**: Start the Docker Desktop application <img src="https://github.com/StavC/spark-course/assets/26565498/d8d61362-3019-4817-a1e1-73ec0bac3ee8" width="50"><br>
 
-**Windows**: Start Docker Desktop <br>
-**Mac**: Start Docker application
+Continue with the Ubuntu Terminal <br>
+* Run the command: `./run` that internally runs `docker compose up -d` and opens a browser that shows the Jupyter notebooks.
 
-
-Run the command: `./run` that internally runs `docker compose up -d` and opens a browser that shows the Jupyter notebooks.
-
-In the browser, open the `work` folder and open the first notebook.
+* In the browser, open the `work` folder and open the first notebook.
 
 That's all!
 
