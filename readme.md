@@ -30,7 +30,8 @@ PLAY WITH THE CODE! You will break things and that's ok. When you want to clean,
 
 # Installing / Running Docker
 **Windows**:<br>
-see docs/Windows_Spark_install_tutorial.pdf
+see [docs/Windows_Spark_install_tutorial.pdf](docs/Windows_Spark_install_tutorial.pdf)
+
 
    install Docker Desktop. <Br>
    install WSL2 as detailed in the instructions on the web<br>
@@ -71,6 +72,8 @@ and type:
 # Running Spark!
 
 Open a terminal (in Windows, search "ubuntu")
+![image](https://github.com/StavC/spark-course/assets/26565498/b6dfd31d-e952-47a4-84b3-b7f3e9cc7798)
+
 
 ## Get the sources
 _note:_ This should be done only once.
