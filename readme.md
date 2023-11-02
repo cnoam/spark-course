@@ -79,7 +79,7 @@ Open a terminal (in Windows, search "ubuntu")
 ## Get the sources
 _note:_ This should be done only once.
 
-**The video in https://youtu.be/-sP_IZ02SZw shows the following procedure. Watch it if you have any issues.**
+**The video in [here](https://youtu.be/-sP_IZ02SZw) shows the following procedure. Watch it if you have any issues.**
 
 _note_: In the video I use `clone`. The `--depth` is optional and can be used when you want to get only the N latests commits.
 
