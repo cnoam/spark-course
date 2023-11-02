@@ -94,7 +94,7 @@ Clone this repo:<br>
 Continue with the Ubuntu Terminal <br>
 * Run the command: `./run` that internally runs `docker compose up -d` and opens a browser that shows the Jupyter notebooks.
 
-* In the Juypter Lab in your browser, open the `work` folder and open the first notebook <a href="work/0 Welcome.md"> work/0 Welcome.md</a> , while going through the notebooks work with the [video recordings](https://panoptotech.cloud.panopto.eu/Panopto/Pages/Sessions/List.aspx?folderID=a2ea87f6-ac49-4444-b9bd-afa800a4f0c3).
+* In the Juypter Lab in your browser, open the `work` folder and open the first notebook <a href="work/0 Welcome.md"> work/0 Welcome.md</a>, some of the notebooks have [video recordings](https://panoptotech.cloud.panopto.eu/Panopto/Pages/Sessions/List.aspx?folderID=a2ea87f6-ac49-4444-b9bd-afa800a4f0c3) that are recommneded to watch.
 
 That's all!
 
