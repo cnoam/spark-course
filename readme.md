@@ -72,6 +72,7 @@ and type:
 # Running Spark!
 
 Open a terminal (in Windows, search "ubuntu")
+
 ![image](https://github.com/StavC/spark-course/assets/26565498/b6dfd31d-e952-47a4-84b3-b7f3e9cc7798)
 
 
@@ -162,6 +163,12 @@ run `docker logs spark-lab` and find the line with the URL to open the notebook.
 If the above doesn't work:
  1. close all browser tab of the jupyter notebooks
  1. run `docker compose restart`
+
+## the 'run' command returns "docker: command not found:
+
+![image](https://github.com/StavC/spark-course/assets/26565498/f42aef16-3174-4877-9912-ddecd84bc767)
+1. Reopen the "Docker" application, make sure it's open in the background and try again.
+
 
 ## Strange errors
 If strange errors happen, save your changes to another folder and start fresh:
