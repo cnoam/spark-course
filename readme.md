@@ -73,7 +73,7 @@ and type:
 
 Open a terminal (in Windows, search "ubuntu")
 
-![image](https://github.com/StavC/spark-course/assets/26565498/b6dfd31d-e952-47a4-84b3-b7f3e9cc7798)
+![image](assets/UbuntuSearch.png)
 
 
 ## Get the sources
@@ -89,12 +89,14 @@ Clone this repo:<br>
 
 ## Run the Spark server in Docker
 * In the Ubuntu Terminal `cd spark-course` to the repo you just cloned.
-* **Windows and Mac**: Start the Docker Desktop application <img src="https://github.com/StavC/spark-course/assets/26565498/d8d61362-3019-4817-a1e1-73ec0bac3ee8" width="50"><br>
+* **Windows and Mac**: Start the Docker Desktop application <img src="assets/Docker.png" width="50"><br>
 
 Continue with the Ubuntu Terminal <br>
 * Run the command: `./run` that internally runs `docker compose up -d` and opens a browser that shows the Jupyter notebooks.
 
 * In the Juypter Lab in your browser, open the `work` folder and open the first notebook <a href="work/0 Welcome.md"> work/0 Welcome.md</a>, some of the notebooks have [video recordings](https://panoptotech.cloud.panopto.eu/Panopto/Pages/Sessions/List.aspx?folderID=a2ea87f6-ac49-4444-b9bd-afa800a4f0c3) that are recommneded to watch.
+
+Additonal Programming guides on Spark can be found [here](https://spark.apache.org/docs/latest/quick-start.html)
 
 That's all!
 
@@ -164,7 +166,7 @@ If the above doesn't work:
 
 ## the 'run' command returns "docker: command not found:
 
-![image](https://github.com/StavC/spark-course/assets/26565498/f42aef16-3174-4877-9912-ddecd84bc767)
+![image](assets/DockerError.png)
 1. Reopen the "Docker" application, make sure it's open in the background and try again.
 
 
