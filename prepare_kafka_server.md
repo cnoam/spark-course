@@ -40,6 +40,8 @@ data/sdg/retail-data/by-day/2010-12-06.csv  data/sdg/retail-data/by-day/2010-12-
 Install the command line tool:
 `sudo apt install -y kafkacat`
 
+If you get "Unable to locate package kafakacat" then ' sudo apt-get update' first and then rerun the install command.
+
 *Note*: When using the newer "kcat v1.7" tool, it hanged while ingesting files
 
 Get the list of files you want to ingest:
