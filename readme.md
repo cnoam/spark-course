@@ -30,7 +30,8 @@ PLAY WITH THE CODE! You will break things and that's ok. When you want to clean,
 
 # Installing / Running Docker
 **Windows**:<br>
-see docs/Windows_Spark_install_tutorial.pdf
+see [docs/Windows_Spark_install_tutorial.pdf](docs/Windows_Spark_install_tutorial.pdf)
+
 
    install Docker Desktop. <Br>
    install WSL2 as detailed in the instructions on the web<br>
@@ -72,10 +73,13 @@ and type:
 
 Open a terminal (in Windows, search "ubuntu")
 
+![image](assets/UbuntuSearch.png)
+
+
 ## Get the sources
 _note:_ This should be done only once.
 
-**The video in https://youtu.be/-sP_IZ02SZw shows the following procedure. Watch it if you have any issues.**
+**The video in [here](https://youtu.be/-sP_IZ02SZw) shows the following procedure. Watch it if you have any issues.**
 
 _note_: In the video I use `clone`. The `--depth` is optional and can be used when you want to get only the N latests commits.
 
@@ -84,15 +88,15 @@ Clone this repo:<br>
 `git clone --depth 1 https://github.com/cnoam/spark-course.git` <br>
 
 ## Run the Spark server in Docker
-`cd spark-course` <br>
+* In the Ubuntu Terminal `cd spark-course` to the repo you just cloned.
+* **Windows and Mac**: Start the Docker Desktop application <img src="assets/Docker.png" width="50"><br>
 
-**Windows**: Start Docker Desktop <br>
-**Mac**: Start Docker application
+Continue with the Ubuntu Terminal <br>
+* Run the command: `./run` that internally runs `docker compose up -d` and opens a browser that shows the Jupyter notebooks.
 
+* In the Juypter Lab in your browser, open the `work` folder and open the first notebook <a href="work/0 Welcome.md"> work/0 Welcome.md</a>, some of the notebooks have [video recordings](https://panoptotech.cloud.panopto.eu/Panopto/Pages/Sessions/List.aspx?folderID=a2ea87f6-ac49-4444-b9bd-afa800a4f0c3) that are recommneded to watch.
 
-Run the command: `./run` that internally runs `docker compose up -d` and opens a browser that shows the Jupyter notebooks.
-
-In the browser, open the `work` folder and open the first notebook.
+Additonal Programming guides on Spark can be found [here](https://spark.apache.org/docs/latest/quick-start.html)
 
 That's all!
 
@@ -159,6 +163,12 @@ run `docker logs spark-lab` and find the line with the URL to open the notebook.
 If the above doesn't work:
  1. close all browser tab of the jupyter notebooks
  1. run `docker compose restart`
+
+## the 'run' command returns "docker: command not found:
+
+![image](assets/DockerError.png)
+1. Reopen the "Docker" application, make sure it's open in the background and try again.
+
 
 ## Strange errors
 If strange errors happen, save your changes to another folder and start fresh:
