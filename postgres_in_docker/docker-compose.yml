@@ -13,7 +13,7 @@ services:
 # If connecting only from the internal network, there is no need
 # to expose these ports. 
 #    ports:
-#      - "5432:5432"
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - $PWD/data:/data
