@@ -13,7 +13,7 @@ Use docker:
 ## Installing Postgres in ubuntu (from command line)
 Just run the next step! The DB engine will be downloaded automatically by docker.
 
-# preparing the database
+# Preparing the database
 It is easy to create the database (once) from the command line.
 
 **Remember that once a Docker container is removed, all its data is lost UNLESS the data is stored outside the container**
@@ -24,12 +24,17 @@ The data for this container is stored in the host (it is declared in the docker-
 We first need to start the container and then connect to the running container:
 
 In terminal 1: 
-```docker-compose up -d```
-<br>note: if you get an error complaining on missing network, retry with `docker-compose up -d --force-recreate`
+```
+cd postgres_in_docker # if you are not already in this directory
+docker-compose up -d
+```
+<br>Note: if you get an error complaining on missing network, retry with `docker-compose up -d --force-recreate`
 
-Then, after the command finishes (and the DB runs in the background),
+Then, after the command finishes (and the DB runs in the background), run (in the same terminal):
 
 ```docker exec -it psqlserver psql -U postgres```
+
+This will open the database management console.
 
 Once in the psql console:
 
