@@ -1,5 +1,4 @@
 ---
-version: '3.9'
 
 services:
   #    https://docs.confluent.io/platform/current/installation/docker/config-reference.html#zk-configuration
@@ -14,6 +13,7 @@ services:
       - zk_vol_log:/var/lib/zookeeper/log
     networks:
       - spark_backend
+    restart: always
 
   # if you change this name, MUST also change in the environ, and remove the ZK volume since it hold an old kafka server ID  for the old name.
   kafka:
@@ -53,7 +53,18 @@ services:
       - kafka_vol:/var/lib/kafka/data/
     networks:
       - spark_backend
+    restart: always
 
+# # export kafka metrics for use by prometheus
+#   kafka-exporter:
+#     image: danielqsj/kafka-exporter
+#     command: ["--kafka.server=kafka:9092"]
+#     depends_on:
+#       - kafka
+#     ports:
+#       - 9308:9308
+#     networks:
+#       - spark_backend
 
 
   spark:
