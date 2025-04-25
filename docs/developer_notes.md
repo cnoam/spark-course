@@ -1,5 +1,10 @@
 # Notes for developer/contributor of the course
 
+# How to add/modify a notebook to this repo?
+You need to create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+
+
+# How to prevent dummy changes in the notebook
 After running a notebook and saving it, the file contents (*.ipynb) is changed even if the output has not be modified.
 This makes finding real modification difficult, so I built a git hook that will not allow committing notebooks that already run.
 
