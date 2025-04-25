@@ -58,3 +58,11 @@ I found the list of dependencies, downloaded them and then removed the largest f
 I took the package name, lookd at Maven how the \<dependecy\> looks and created a pom.xml file using a simple example.
 
 Then ran `mvn dependency:copy-dependencies`
+
+## Installing Graphframes
+
+A short search in https://docs.databricks.com/en/integrations/graphframes/index.html directed me to https://spark-packages.org/package/graphframes/graphframes where I can simply download the JAR file, and place it into the /jars folder
+
+NOTE: it requires spark 3.5
+
+I did not find this lib in Maven. Only is spark-packages.org
