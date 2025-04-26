@@ -1,7 +1,11 @@
 #!/bin/bash -e
 
 # start the spark and friends services
-
+# If the host UID != container UID (1000), saving the notebook is not possible.
+# we ask the container to use the host's UID/GID
+export HOST_UID=$(id -u)
+export HOST_GID=$(id -g)
+echo HOST UID, GID = $HOST_UID  $HOST_GID
 if [[ $1 == "spark" ]]; then
     echo "Starting Spark only"
     docker compose up --scale kafka=0 --scale zookeeper=0 -d
@@ -10,7 +14,7 @@ else
 fi
 set -u
 
-# open the browser on the jypterlab notebook. 
+# open the browser on the jupyterlab notebook.
 
 # keep trying until the URL is available
 
@@ -27,7 +31,7 @@ echo If the browser is not opened, Open browser on
     echo $url
 set +eu
 if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
-    echo "Runing in Windows WSL"
+    echo "Running in Windows WSL"
     cmd.exe /C start $url
 else
     echo "Running on non WSL machine. Probably Mac or linux"
