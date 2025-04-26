@@ -77,9 +77,11 @@ services:
     image: spark-3.3.2_jars
     build:
        dockerfile: Dockerfile.spark
+    user: root  # https://jupyter-docker-stacks.readthedocs.io/en/latest/using/troubleshooting.html
     environment:
        JUPYTER_ENABLE_LAB : "yes"
-
+       NB_UID: "${HOST_UID}"
+       NB_GID: "${HOST_GID}"
     ports:
        - 8888:8888
        - 4040:4040   # the diagnostics web UI is created after succesful creation of SparkSession.
