@@ -1,3 +1,4 @@
 .ipynb_checkpoints/
 *.parquet
 work/spark-warehouse/
+.idea/
