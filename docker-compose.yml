@@ -84,7 +84,7 @@ services:
        NB_GID: "${HOST_GID}"
     ports:
        - 8888:8888
-       - 4040:4040   # the diagnostics web UI is created after succesful creation of SparkSession.
+       - 4040-4050:4040-4050   # the diagnostics web UI is created after successful creation of SparkSession.
     volumes:
        - $PWD/work:/home/jovyan/work
        - $PWD/data:/home/jovyan/data
